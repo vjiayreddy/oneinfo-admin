@@ -1,0 +1,12 @@
+// Export all auth components for easier imports
+export { default as Login } from "./Login";
+export { default as LoginButton } from "./LoginButton";
+export { default as UserProfile } from "./UserProfile";
+export { default as LoginForm } from "./LoginForm";
+export { default as ForgotPassword } from "./ForgotPassword";
+export { default as ForgotPasswordForm } from "./ForgotPasswordForm";
+export { default as VerifyOtp } from "./VerifyOtp";
+export { default as VerifyOtpForm } from "./VerifyOtpForm";
+export { default as ResetPassword } from "./ResetPassword";
+export { default as ResetPasswordForm } from "./ResetPasswordForm";
+export { default as PasswordChangeSuccess } from "./PasswordChangeSuccess";

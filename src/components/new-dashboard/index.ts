@@ -1,0 +1,11 @@
+// Export all dashboard components for easy imports
+export { default as Dashboard } from "./Dashboard";
+export { default as Sidebar } from "./Sidebar";
+export { default as Header } from "./Header";
+export { default as StatsCard } from "./StatsCard";
+export { default as LineChart } from "./LineChart";
+export { default as PieChart } from "./PieChart";
+export { default as RecentActivity } from "./RecentActivity";
+export { default as CreatorInsights } from "./CreatorInsights";
+export { default as TopPerformers } from "./TopPerformers";
+export { default as EngagementStats } from "./EngagementStats";
