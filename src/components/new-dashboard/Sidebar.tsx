@@ -18,22 +18,22 @@ const navItems = [
   },
   {
     label: "Creators",
-    href: "/dashboard/creators",
+    href: "/creators",
     icon: Users,
   },
   {
     label: "Content",
-    href: "/dashboard/content",
+    href: "/content",
     icon: FileText,
   },
   {
     label: "Paid Collabs",
-    href: "/dashboard/paid-collabs",
+    href: "/paid-collabs",
     icon: DollarSign,
   },
   {
     label: "Setting",
-    href: "/dashboard/settings",
+    href: "/settings",
     icon: Settings,
   },
 ];

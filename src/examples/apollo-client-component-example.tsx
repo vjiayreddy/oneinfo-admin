@@ -3,8 +3,9 @@
 // Example: Using Apollo Client in Client Components
 // This is a CLIENT COMPONENT (has "use client" directive)
 
-import { useSuspenseQuery, useMutation } from "@apollo/experimental-nextjs-app-support/ssr";
+import { useSuspenseQuery } from "@apollo/experimental-nextjs-app-support/ssr";
 import { gql } from "@apollo/client";
+import { useMutation } from "@apollo/client/react";
 import { Suspense } from "react";
 
 // Define your GraphQL query
@@ -38,10 +39,21 @@ export default function ClientComponentExample() {
   );
 }
 
+// Define the type for the query result
+interface User {
+  id: string;
+  name: string;
+  email: string;
+}
+
+interface UsersData {
+  users: User[];
+}
+
 // Component that uses useSuspenseQuery
 function UsersList() {
   // Use useSuspenseQuery hook (recommended for Next.js App Router)
-  const { data } = useSuspenseQuery(GET_USERS_QUERY);
+  const { data } = useSuspenseQuery<UsersData>(GET_USERS_QUERY);
 
   // Use mutation hook
   const [createUser, { loading: creating }] = useMutation(CREATE_USER_MUTATION, {
@@ -76,7 +88,7 @@ function UsersList() {
       </button>
 
       <ul>
-        {data.users.map((user: any) => (
+        {data.users.map((user) => (
           <li key={user.id} className="mb-2">
             {user.name} - {user.email}
           </li>

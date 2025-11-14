@@ -37,6 +37,18 @@ const DELETE_USER = gql`
   }
 `;
 
+// Type definitions
+interface User {
+  id: string;
+  name: string;
+  email: string;
+  createdAt: string;
+}
+
+interface UsersData {
+  users: User[];
+}
+
 // Loading component
 function LoadingSpinner() {
   return (
@@ -48,7 +60,7 @@ function LoadingSpinner() {
 
 // Users list component
 function UsersList() {
-  const { data, refetch } = useSuspenseQuery(GET_USERS);
+  const { data, refetch } = useSuspenseQuery<UsersData>(GET_USERS);
   const [selectedUserId, setSelectedUserId] = useState<string | null>(null);
 
   const { mutate: deleteUser, loading: deleting, errorMessage: deleteError } = useApolloMutation(

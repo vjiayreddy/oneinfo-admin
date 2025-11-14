@@ -14,9 +14,7 @@ import {
 import {
   useReactTable,
   getCoreRowModel,
-  getPaginationRowModel,
   getSortedRowModel,
-  getFilteredRowModel,
   ColumnDef,
   SortingState,
   flexRender,
@@ -35,11 +33,7 @@ interface TableCreator {
   isActive: boolean;
 }
 
-interface CreatorInsightsTableProps {
-  // No props needed, will fetch data internally
-}
-
-export default function CreatorInsightsTable({}: CreatorInsightsTableProps) {
+export default function CreatorInsightsTable() {
   const router = useRouter();
   const searchParams = useSearchParams();
   

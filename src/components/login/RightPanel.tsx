@@ -19,7 +19,7 @@ const RightPanel = () => {
         </div>
         <h2 className="text-3xl lg:text-4xl font-bold">Verify Your Identity</h2>
         <p className="text-base lg:text-lg text-blue-100">
-          Enter your email address and we'll send you a verification code to
+          Enter your email address and we&apos;ll send you a verification code to
           reset your password securely.
         </p>
         <div className="bg-white/10 backdrop-blur-lg rounded-lg p-6 text-left space-y-3">

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { NextAuthOptions } from "next-auth";
 import GithubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
@@ -52,6 +53,8 @@ export const authOptions: NextAuthOptions = {
             },
           });
 
+          console.log("Login mutation response data:", data);
+
           if (data?.loginAdmin) {
             const { adminData, authToken } = data.loginAdmin;
 
@@ -67,6 +70,7 @@ export const authOptions: NextAuthOptions = {
           }
 
           return null;
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } catch (error: any) {
           console.error("Authentication error:", error);
           throw new Error(error.message || "Invalid credentials");
@@ -97,6 +101,7 @@ export const authOptions: NextAuthOptions = {
         token.id = user.id;
         token.email = user.email || undefined;
         // Store the authToken from GraphQL response
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         if ((user as any).authToken) {
           token.authToken = (user as any).authToken;
         }

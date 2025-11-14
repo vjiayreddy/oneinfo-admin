@@ -1,10 +1,7 @@
 "use client";
 
-import { Users, FileText, TrendingUp, DollarSign } from "lucide-react";
-import StatsCard from "./StatsCard";
 import LineChart from "./LineChart";
 import PieChart from "./PieChart";
-import RecentActivity from "./RecentActivity";
 import CreatorInsights from "./CreatorInsights";
 import TopPerformers from "./TopPerformers";
 import EngagementStats from "./EngagementStats";
@@ -19,7 +16,7 @@ export default function Dashboard() {
             Dashboard
           </h1>
           <p className="text-sm text-[#6e6e73] leading-5 mt-1">
-            Welcome back! Here's what's happening today.
+            Welcome back! Here&apos;s what&apos;s happening today.
           </p>
         </div>
         <div className="mb-6">

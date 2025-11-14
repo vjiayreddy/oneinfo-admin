@@ -4,6 +4,17 @@
 import { getClient } from "@/lib/apollo-client";
 import { gql } from "@apollo/client";
 
+// Define types for the query result
+interface User {
+  id: string;
+  name: string;
+  email: string;
+}
+
+interface UsersData {
+  users: User[];
+}
+
 // Define your GraphQL query
 const GET_USERS_QUERY = gql`
   query GetUsers {
@@ -21,7 +32,7 @@ export default async function ServerComponentExample() {
   const client = getClient();
 
   // Fetch data using client.query()
-  const { data, error } = await client.query({
+  const { data, error } = await client.query<UsersData>({
     query: GET_USERS_QUERY,
   });
 
@@ -29,11 +40,15 @@ export default async function ServerComponentExample() {
     return <div>Error loading users: {error.message}</div>;
   }
 
+  if (!data) {
+    return <div>No data available</div>;
+  }
+
   return (
     <div>
       <h1>Users (Server Component)</h1>
       <ul>
-        {data.users.map((user: any) => (
+        {data.users.map((user) => (
           <li key={user.id}>
             {user.name} - {user.email}
           </li>
